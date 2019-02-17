@@ -1,58 +1,50 @@
 // the array to hold the letters 
 
-var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",];
+var  abcOptions = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",];
 
-// counts for wins, losses etc....
+// counts for wins, wrongGuess etc....
 
 var wins = 0;
-var losses = 0;
+var wrongGuess = 0;
 var guessesLeft = 9;
-var userGuess = [];
+var alreadyGuessed = [];
+var computerChoice = [];
 
-// refrence variables
-var computerChoice = document.getElementById("directions");
+// refrence variables to add inputs and scores to html
+var directionText = document.getElementById("directions");
 var correctGuess = document.getElementById("wins");
-var wrongGuess = document.getElementById("losses");
-var remainingGuesses = document.getElementById("remaining-guesses");
-var currentGuesses = document.getElementById("current-guesses");
-var lettersChosen = document.getElementById("current-letters");
+var wrongGuess = document.getElementById("wrongGuess");
+var guessesLeft = document.getElementById("remaining-guesses");
+var alreadyGuessed = document.getElementById("current-letters");
 
-// the game
+// game functions
+
 document.onkeyup = function (event) {
-    var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
-    console.log(userGuess);
     var userGuess = event.key;
-    var computerChoices = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-    var userGuess = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",];
-};
+    var alreadyGuessed = String.fromCharCode(event.keyCode).toLowerCase();
+    var computerChoice = abcOptions[Math.floor(Math.random() * abcOptions.length)];
 
 // scoring
-if (userGuess.indexOf(userGuess) > -1) {
-    wins++;
-    guessesLeft = 9;
-    userGuess = [];
-};
-if (userGuess != computerGuess) {
-    guessesLeft - 1;
-    userGuess.push(userGuess);
+
+for (var i = 0; i < 10; i++) {
+
+if ((alreadyGuessed === computerChoice)) {
+    wins ++;
 }
-if (userGuess === 0) {
-    losses++;
-    userGuess = [];
+if ((alreadyGuessed !== computerChoice)) {
+    wrongGuess ++;
+    guessesLeft -1;
+    userGuess ++;
+}
+
+// displays the users guess, wins, wrongGuess, etc...
+alreadyGuessed.textContent = "you-chose: " + alreadyGuessed;
+correctGuess.textContent = "wins: " + wins;
+wrongGuess.textContent = "wrongGuess: " + wrongGuess;
+guessesLeft.textContent = "guesses-remaining: " + guessesLeft;
+alreadyGuessed.textContent = "letters-guessed: " + userGuess;
+}
 };
-
-// displays the users guess, wins, losses, etc...
-var html =
-    currentGuesses.textContent = "You chose: " + userGuess;
-    correctGuess.textContent = "Wins: " + computerGuess;
-    wrongGuess.textContent = "Losses: " + losses;
-    remainingGuesses.textContent = "Guesses remaining: " + guessesLeft;
-    lettersChosen.textContent = "Letters Guessed: " + userGuess;
-
-    document.querySelector("#game").innerHTML = html;
-
-
-
 
 
 
