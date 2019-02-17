@@ -10,41 +10,56 @@ var guessesLeft = 9;
 var alreadyGuessed = [];
 var computerChoice = [];
 
-// refrence variables to add inputs and scores to html
-var directionText = document.getElementById("directions");
+// refrence variables
+var computerChoice = document.getElementById("directions");
 var correctGuess = document.getElementById("wins");
-var wrongGuess = document.getElementById("wrongGuess");
-var guessesLeft = document.getElementById("remaining-guesses");
-var alreadyGuessed = document.getElementById("current-letters");
+var wrongGuess = document.getElementById("losses");
+var remainingGuesses = document.getElementById("remaining-guesses");
+var currentGuesses = document.getElementById("current-guesses");
+var lettersChosen = document.getElementById("current-letters");
 
 // game functions
+window.onload = function() {
+    var compGuess = computerChoice[Math.floor(Math.random * abcOptions.length)];
+}
 
 document.onkeyup = function (event) {
     var userGuess = event.key;
     var alreadyGuessed = String.fromCharCode(event.keyCode).toLowerCase();
     var computerChoice = abcOptions[Math.floor(Math.random() * abcOptions.length)];
-
+    console.log(computerChoice[0])
 // scoring
 
 for (var i = 0; i < 10; i++) {
 
-if ((alreadyGuessed === computerChoice)) {
+if ((alreadyGuessed === computerChoice) && (guessesLeft > 0)) {
     wins ++;
+    guessesLeft = 9;
+    computerChoice.length = 0;
+    var compGuess = abcOptions[Math.floor(Math.random() * abcOptions.length)];
+    console.log(computerChoice[0])
 }
-if ((alreadyGuessed !== computerChoice)) {
-    wrongGuess ++;
-    guessesLeft -1;
-    userGuess ++;
+else if ((alreadyGuessed !== computerChoice) && (guessesLeft > 0)) {
+    guessesLeft = guessesLeft -1;
+    console.log(computerChoice[0])
 }
 
-// displays the users guess, wins, wrongGuess, etc...
-alreadyGuessed.textContent = "you-chose: " + alreadyGuessed;
-correctGuess.textContent = "wins: " + wins;
-wrongGuess.textContent = "wrongGuess: " + wrongGuess;
-guessesLeft.textContent = "guesses-remaining: " + guessesLeft;
-alreadyGuessed.textContent = "letters-guessed: " + userGuess;
+else {
+    losses++;
+    guessesLeft = 9;
+    computerChoice.length = 0;
+    var compGuess = abcOptions[Math.floor(Math.random() * abcOptions.length)];
+    console.log(computerChoice[0])
 }
 };
+// displays the users guess, wins, wrongGuess, etc...
+alreadyGuessed.textContent = "You Chose " + alreadyGuessed;
+correctGuess.textContent = "Wins " + wins;
+wrongGuess.textContent = "Losses " + wrongGuess;
+guessesLeft.textContent = "Guesses Remaining: " + guessesLeft;
+alreadyGuessed.textContent = "Letters Chosen: " + userGuess;
+}
+
 
 
 
