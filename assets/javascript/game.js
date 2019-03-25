@@ -38,8 +38,8 @@ document.onkeyup = function (event) {
 
         if ((alreadyGuessed[i] === computerChoice[0]) && (guessesLeft > 0)) {
             wins++;
-            alert("A winner is you")
-            console.log("A winner is you")
+            alert("A winner is you");
+            console.log("A winner is you");
             // Reset the game
             guessesLeft = 9;
             computerChoice = [];
@@ -49,9 +49,9 @@ document.onkeyup = function (event) {
         }
         else if ((alreadyGuessed[i] !== computerChoice[0]) && (guessesLeft > 0)) {
             guessesLeft = guessesLeft -1;
-            //console.log(computerChoice[0])
-            console.log("Try Again Buddy!")
-            alert("Try Again Buddy!" + guessesLeft)
+            //console.log(computerChoice[0]);
+            console.log("Try Again Buddy!");
+            alert("Try Again Buddy!" + guessesLeft);
             
         }
 
@@ -63,10 +63,9 @@ document.onkeyup = function (event) {
             computerChoice = [];
             var compGuess = abcOptions[Math.floor(Math.random() * abcOptions.length)];
             computerChoice.push(compGuess);
-            console.log(computerChoice[0])
+            console.log(computerChoice[0]);
         }
         
-        if ((
     };
     // displays the users guess, wins, wrongGuess, etc...
     correctGuess.textContent = "Wins " + wins;
