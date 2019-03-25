@@ -38,7 +38,7 @@ document.onkeyup = function (event) {
 
         if ((alreadyGuessed[i] === computerChoice[0]) && (guessesLeft > 0)) {
             wins++;
-            alert("A winner is you"
+            alert("A winner is you")
             console.log("A winner is you")
             // Reset the game
             guessesLeft = 9;
