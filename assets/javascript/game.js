@@ -51,7 +51,7 @@ document.onkeyup = function (event) {
             guessesLeft = guessesLeft -1;
             //console.log(computerChoice[0]);
             console.log("Try Again Buddy!");
-            alert("Try Again Buddy!" + guessesLeft);
+            alert("Try Again Buddy!");
             
         }
 
