@@ -50,8 +50,6 @@ document.onkeyup = function (event) {
         else if ((alreadyGuessed[i] !== computerChoice[0]) && (guessesLeft > 0)) {
             guessesLeft = guessesLeft -1;
             //console.log(computerChoice[0]);
-            console.log("Try Again Buddy!");
-            alert("Try Again Buddy!");
             
         }
 
@@ -64,6 +62,8 @@ document.onkeyup = function (event) {
             var compGuess = abcOptions[Math.floor(Math.random() * abcOptions.length)];
             computerChoice.push(compGuess);
             console.log(computerChoice[0]);
+            console.log("Try Again Buddy!");
+            alert("Try Again Buddy!");
         }
         
     };
