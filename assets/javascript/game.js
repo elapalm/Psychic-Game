@@ -56,6 +56,7 @@ document.onkeyup = function (event) {
             losses++;
             // Reset the game
             guessesLeft = 9;
+            wrongGuess++;
             computerChoice = [];
             var compGuess = abcOptions[Math.floor(Math.random() * abcOptions.length)];
             computerChoice.push(compGuess);
